@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "termo",
+            "otherEntityName": "termo",
+            "otherEntityRelationshipName": "tema"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "disciplina",
+            "otherEntityName": "disciplina",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tema"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "titulo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180609190618",
+    "entityTableName": "tema",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "jurisfacile"
+}

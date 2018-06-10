@@ -1,0 +1,36 @@
+
+<div *ngIf="termo">
+    <h2><span>Termo</span> {{termo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Titulo</span></dt>
+        <dd>
+            <span>{{termo.titulo}}</span>
+        </dd>
+        <dt><span>Texto</span></dt>
+        <dd>
+            <span>{{termo.texto}}</span>
+        </dd>
+        <dt><span>Tema</span></dt>
+        <dd>
+            <div *ngIf="termo.tema">
+                <a [routerLink]="['/tema-jurisfacile', termo.tema?.id]">{{termo.tema?.titulo}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Voltar</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'termo-jurisfacile/'+ termo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Editar</span>
+    </button>
+</div>

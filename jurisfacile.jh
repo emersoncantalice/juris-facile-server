@@ -1,0 +1,28 @@
+entity Curso {
+	titulo String required
+    url String
+}
+
+entity Disciplina {
+	titulo String required
+}
+
+entity Tema {
+	titulo String required
+}
+
+entity Termo {
+	titulo String required,
+	texto TextBlob required,
+}
+
+relationship ManyToMany {
+	Curso{disciplina} to Disciplina{curso},
+    Disciplina{tema} to Tema{disciplina}
+}
+
+relationship OneToMany {
+    Tema{termo} to Termo{tema}
+}
+
+angularSuffix * with jurisfacile

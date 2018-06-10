@@ -1,0 +1,54 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTermoLabel">Criar ou editar um termo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!termo.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="termo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_titulo">Titulo</label>
+            <input type="text" class="form-control" name="titulo" id="field_titulo"
+                [(ngModel)]="termo.titulo" required/>
+            <div [hidden]="!(editForm.controls.titulo?.dirty && editForm.controls.titulo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.titulo?.errors?.required">
+                   Campo obrigatorio!
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_texto">Texto</label>
+            <textarea class="form-control" name="texto" id="field_texto"
+                [(ngModel)]="termo.texto" required></textarea>
+            <div [hidden]="!(editForm.controls.texto?.dirty && editForm.controls.texto?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.texto?.errors?.required">
+                   Campo obrigatorio!
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_tema">Tema</label>
+            <select class="form-control" id="field_tema" name="tema" [(ngModel)]="termo.tema" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="temaOption.id === termo.tema?.id ? termo.tema : temaOption" *ngFor="let temaOption of temas; trackBy: trackTemaById">{{temaOption.titulo}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Salvar</span>
+        </button>
+    </div>
+</form>

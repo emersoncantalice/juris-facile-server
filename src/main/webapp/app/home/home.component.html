@@ -1,41 +1,59 @@
 <div class="row">
-    <div class="col-md-3">
-        <span class="hipster img-fluid rounded"></span>
-    </div>
-    <div class="col-md-9">
-        <h1 class="display-4">Welcome, Java Hipster!</h1>
-        <p class="lead">This is your homepage</p>
+	<div class="col-md-3">
+		<span class="hipster img-fluid rounded"></span>
+	</div>
+	<div class="col-md-9">
+		<h1 class="display-4">Juris Facile</h1>
+		<p class="lead">Essa e sua pagina inicial</p>
 
-        <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true">
-                <span *ngIf="account"
-                   > You are logged in as user "{{account.login}}". </span>
-            </div>
+		<div [ngSwitch]="isAuthenticated()">
+			<div class="alert alert-success" *ngSwitchCase="true">
+				<span *ngIf="account"> Voce entrou com o usuario:
+					"{{account.login}}". </span>
+			</div>
+		</div>
 
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>If you want to </span>
-                <a class="alert-link" (click)="login()">sign in</a><span>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
-            </div>
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>You don't have an account yet?</span>
-                <a class="alert-link" routerLink="register">Register a new account</a>
-            </div>
-        </div>
+		<div align="justify">
+			<p>Projeto de Extensao proposto com o intuito de com base nos
+				construtos necessarios a formacao da consciencia juridico-cidada
+				requisitada pelas mais variadas areas profissionais, trazer
+				conhecimentos especificos de Direito Aplicado a alunos de graduacao,
+				mormente aquelas ofertadas no ambiente da UNIFACISA, FCM e ESAC, com
+				suporte na ciencia da fundamental importancia que os saberes
+				juridicos tem para todos, focando em conteudos informativos alem do
+				curso de Direito, para que outros estudantes possam obter
+				informacoes necessarias sobre os conceitos basicos de leis, normas,
+				procedimentos etc. Condizentes a pratica profissional que vivificam
+				na academia, com a criacao de um aplicativo - app - para smartphone
+				que venha a figurar como uma ferramenta tutorial de
+				insercao/propagacao de conteudo, canal para geracao de foruns de
+				debate e compartilhamento de informacao juridica especifica para as
+				mais diferentes areas abarcadas nos cursos de nossas IES.</p>
+		</div>
+		
+		<hr>
+		
+		<div align="justify">
+		
+		</div>
+		
+		<b>
+			Alunos envolvidos: </b>
+			
+			<p>Integrantes:</p>
 
-        <p>
-            If you have any question on JHipster:
-        </p>
+		<ul style="list-style-type: disc">
+			<li>Joao Ademar de Andrade Lima - Coordenador</li>
+			<li>Daniel Abella Cavalcante Mendonca de Souza - Integrante</li>
+			<li>Emerson dos Santos Cantalice - Integrante</li>
+			<li>Thiago Barbosa Camara - Integrante</li>
+			<li>Renata do Patrocinio Silva Alves - Integrante</li>
+			<li>Emanuel Rodrigues da Penha - Integrante</li>
+			<li>Fernanda Beatriz de Mendonca Pontes - Integrante</li>
+			<li>Emmanuell de Araujo Ramalho - Integrante</li>
+			<li>Leydson Ryan Silvia Tavares - Integrante</li>
+		</ul>
 
-        <ul>
-            <li><a href="http://www.jhipster.tech/" target="_blank" rel="noopener">JHipster homepage</a></li>
-            <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener">JHipster on Stack Overflow</a></li>
-            <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener">JHipster bug tracker</a></li>
-            <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener">JHipster public chat room</a></li>
-            <li><a href="https://twitter.com/java_hipster" target="_blank" rel="noopener">follow @java_hipster on Twitter</a></li>
-        </ul>
 
-        <p>
-            <span>If you like JHipster, don't forget to give us a star on</span> <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener">GitHub</a>!
-        </p>
-    </div>
+	</div>
 </div>

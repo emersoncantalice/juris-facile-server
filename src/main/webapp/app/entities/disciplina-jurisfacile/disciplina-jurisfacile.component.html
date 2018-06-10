@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span>Disciplinas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-disciplina-jurisfacile" [routerLink]="['/', { outlets: { popup: ['disciplina-jurisfacile-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Cadastrar uma nova disciplina
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="disciplinas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Titulo</span></th>
+            <th><span>Tema</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let disciplina of disciplinas ;trackBy: trackId">
+                <td><a [routerLink]="['../disciplina-jurisfacile', disciplina.id ]">{{disciplina.id}}</a></td>
+                <td>{{disciplina.titulo}}</td>
+                <td>
+                    <span *ngFor="let tema of disciplina.temas; let last = last">
+                            <a class="form-control-static" [routerLink]="['../tema-jurisfacile', tema?.id ]">{{tema.titulo}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../disciplina-jurisfacile', disciplina.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">Ver</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'disciplina-jurisfacile/'+ disciplina.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Editar</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'disciplina-jurisfacile/'+ disciplina.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Apagar</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

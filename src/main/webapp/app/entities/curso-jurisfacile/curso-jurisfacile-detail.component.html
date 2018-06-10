@@ -1,0 +1,36 @@
+
+<div *ngIf="curso">
+    <h2><span>Curso</span> {{curso.titulo}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Titulo</span></dt>
+        <dd>
+            <span>{{curso.titulo}}</span>
+        </dd>
+        <dt><span>Url</span></dt>
+        <dd>
+            <span>{{curso.url}}</span>
+        </dd>
+        <dt><span>Disciplina</span></dt>
+        <dd>
+            <span *ngFor="let disciplina of curso.disciplinas; let last = last">
+                <a [routerLink]="['/disciplina-jurisfacile', disciplina?.id ]">{{disciplina.titulo}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span>Voltar</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'curso-jurisfacile/'+ curso.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span>Editar</span>
+    </button>
+</div>
